@@ -11,6 +11,8 @@ use App\Http\Controllers\JenisPencuciController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\FotoProgresanController;
+use App\Http\Controllers\MingguanReportController;
+
 
 
 /*
@@ -108,8 +110,8 @@ Route::controller(TransaksiController::class)->prefix('transaksi')->group(functi
     Route::get('cek', 'cekTransaksi')->name('transaksi.cek');
     Route::get('tambah', 'tambah')->name('transaksi.tambah');
     Route::post('tambah', 'simpan')->name('transaksi.tambah.simpan');
-    Route::get('tambahCustomer', 'tambahCustomer')->name('transaksi.tambahCustomer');
-    Route::post('tambahCustomer', 'simpanCustomer')->name('transaksi.tambahCustomer.simpanCustomer');
+    // Route::get('tambahCustomer', 'tambahCustomer')->name('transaksi.tambahCustomer');
+    // Route::post('tambahCustomer', 'simpanCustomer')->name('transaksi.tambahCustomer.simpanCustomer');
     Route::get('edit/{id}', 'edit')->name('transaksi.edit');
     Route::post('edit/{id}', 'update')->name('transaksi.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('transaksi.hapus');
@@ -142,7 +144,19 @@ Route::controller(FotoProgresanController::class)->prefix('foto_progresan')->gro
     Route::get('hapus/{id}', 'hapus')->name('foto_progresan.hapus');
     Route::get('search', 'search')->name('foto_progresan.search');
 });
+Route::controller(MingguanReportController::class)->prefix('mingguan_reports')->group(function () {
+    Route::get('',  'index')->name('mingguan_reports');
+    Route::get('tambah', 'tambah')->name('mingguan_reports.tambah');
+    Route::post('tambah', 'simpan')->name('mingguan_reports.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('mingguan_reports.edit');
+    Route::post('edit/{id}', 'update')->name('mingguan_reports.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('mingguan_reports.hapus');
+    Route::get('search', 'search')->name('mingguan_reports.search');
+    Route::get('tambahData', 'tambahData')->name('mingguan_reports.tambahData');
+    Route::post('tambahData', 'simpanData')->name('mingguan_reports.tambahData.simpanData');
+    Route::post('/mingguan_reports/pesan-lagi', 'MingguanReportController@pesanLagi')->name('mingguan_reports.pesan-lagi');
 
+});
 Route::middleware('auth')->group(function () {
     Route::get('home', function () {
         return view('home');

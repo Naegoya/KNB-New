@@ -29,7 +29,7 @@
             <i class="fas fa-fw fa-users"></i>
             <span>User</span></a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{{ route('jenis_cucian') }}">
             <i class="fas fa-fw fa-tshirt"></i>
             <span>Jenis Cucian</span></a>
@@ -53,11 +53,16 @@
         <a class="nav-link" href="{{ route('riwayat_transaksi') }}">
             <i class="fas fa-fw fa-tasks"></i>
             <span>Riwayat Transaksi</span></a>
-    </li>
+    </li> -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('foto_progresan') }}">
             <i class="fas fa-fw fa-tasks"></i>
             <span>Foto Progresan</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('mingguan_reports') }}">
+            <i class="fas fa-fw fa-tasks"></i>
+            <span>Mingguan Report</span></a>
     </li>
 
     <!-- Divider -->
